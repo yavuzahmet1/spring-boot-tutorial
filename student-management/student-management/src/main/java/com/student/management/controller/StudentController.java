@@ -3,9 +3,7 @@ package com.student.management.controller;
 import com.student.management.model.Student;
 import com.student.management.service.StudentService;
 import jdk.dynalink.linker.LinkerServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +18,11 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getALl() {
-        return studentService.getAll();
+        return studentService.getStudents();
     }
+   @PostMapping
+   public void newStudent(@RequestBody Student newStudent){
+        studentService.addNewStudent(newStudent);
+   }
 
 }
